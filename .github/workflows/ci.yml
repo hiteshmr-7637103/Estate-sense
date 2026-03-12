@@ -1,0 +1,26 @@
+name: Estate Sense CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build ML Service
+        run: docker build -t estate-sense-ml ./ml_service
+
+      - name: Build Backend
+        run: docker build -t estate-sense-backend ./backend
+
+      - name: Build Frontend
+        run: docker build -t estate-sense-frontend ./frontend

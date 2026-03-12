@@ -1,3 +1,4 @@
 {
-    "workbench.colorTheme": "Default Dark Modern"
+    "python.defaultInterpreterPath": "/home/hitesh-m-r/miniconda3/envs/ml_ds/bin/python",
+    "jupyter.notebookFileRoot": "${workspaceFolder}"
 }

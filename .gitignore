@@ -76,3 +76,5 @@ outputs/
 
 # Docker
 .docker/
+
+.ipynb_checkpoints

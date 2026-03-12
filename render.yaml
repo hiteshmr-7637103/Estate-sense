@@ -3,8 +3,7 @@ services:
   - type: pserv
     name: estate-sense-ml
     env: docker
-    dockerContext: ./ml_service
-    dockerfilePath: ./ml_service/Dockerfile
+    rootDir: ./ml_service
     plan: free
     region: ohio
 
@@ -12,15 +11,14 @@ services:
   - type: web
     name: estate-sense-backend
     env: docker
-    dockerContext: ./backend
-    dockerfilePath: ./backend/Dockerfile
+    rootDir: ./backend
     plan: free
     region: ohio
     envVars:
       - key: MONGO_URI
         sync: false
       - key: PORT
-        value: 5000
+        value: "5000"
       - key: PYTHON_API_URL
         fromService:
           name: estate-sense-ml

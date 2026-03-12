@@ -10,12 +10,23 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("MongoDB Connected"))
-    .catch(err => console.log(err));
+if (process.env.MONGO_URI) {
+    mongoose.connect(process.env.MONGO_URI)
+        .then(() => console.log("MongoDB Connected"))
+        .catch(err => console.log(err));
+} else {
+    console.log("MONGO_URI not provided. Skipping database connection for now.");
+}
 
 const ML_SERVICE_BASE = process.env.PYTHON_API_URL || "http://estate-sense-ml:8000";
-const PYTHON_API_URL = `${ML_SERVICE_BASE}/predict`;
+// Ensure ML_SERVICE_BASE has a protocol (http:// or https://)
+const base_url = ML_SERVICE_BASE.startsWith('http') ? ML_SERVICE_BASE : `http://${ML_SERVICE_BASE}`;
+const PYTHON_API_URL = `${base_url}/predict`;
+
+// Render Internal Health Check Endpoint
+app.get('/', (req, res) => {
+    res.status(200).send("Estate Sense Backend is running");
+});
 
 app.post('/api/house-price', async (req, res) => {
     try {

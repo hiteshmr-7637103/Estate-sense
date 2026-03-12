@@ -65,6 +65,7 @@ venv.bak/
 # Ignore all pickle files by default to prevent repo bloat
 *.pkl
 models/
+!backend/models/
 
 !ml_service/pipeline.pkl
 

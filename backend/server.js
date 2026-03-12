@@ -14,7 +14,8 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
 
-const PYTHON_API_URL = "http://estate-sense-ml:8000/predict";
+const ML_SERVICE_BASE = process.env.PYTHON_API_URL || "http://estate-sense-ml:8000";
+const PYTHON_API_URL = `${ML_SERVICE_BASE}/predict`;
 
 app.post('/api/house-price', async (req, res) => {
     try {

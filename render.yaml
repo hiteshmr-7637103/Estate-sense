@@ -1,23 +1,28 @@
 services:
-  # 1. The ML Service
-  - type: pvt
+  # 1. The ML Service (Private — only accessible internally)
+  - type: pserv
     name: estate-sense-ml
     env: docker
     dockerContext: ./ml_service
-    dockerfilePath: ./ml_service/Dockerfile 
+    dockerfilePath: ./ml_service/Dockerfile
     plan: free
     region: ohio
 
-  # 2. The Backend
+  # 2. The Backend (Public Web Service)
   - type: web
     name: estate-sense-backend
     env: docker
     dockerContext: ./backend
-    dockerfilePath: ./backend/Dockerfile      
+    dockerfilePath: ./backend/Dockerfile
     plan: free
     region: ohio
     envVars:
       - key: MONGO_URI
-        sync: false 
+        sync: false
       - key: PORT
         value: 5000
+      - key: PYTHON_API_URL
+        fromService:
+          name: estate-sense-ml
+          type: pserv
+          property: hostport

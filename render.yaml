@@ -7,7 +7,7 @@ services:
     plan: free
     region: ohio
 
-  # 2. The Backend (Public Web Service)
+# 2. The Backend (Public)
   - type: web
     name: estate-sense-backend
     env: docker
@@ -19,9 +19,3 @@ services:
         sync: false 
       - key: PORT
         value: 5000
-
-  # 3. The Frontend (Static Site)
-  - type: static
-    name: estate-sense-app
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/dist

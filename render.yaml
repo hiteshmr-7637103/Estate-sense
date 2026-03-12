@@ -1,15 +1,13 @@
 services:
-  # 1. The ML Service (Python/FastAPI)
-  - type: web
+  # 1. The ML Service 
+  - type: pvt
     name: estate-sense-ml
     env: docker
     dockerContext: ./ml_service
     plan: free
-    region: ohio # Ensure all are in the same region
-    property:
-      private: true # This hides the ML service from the public internet!
+    region: ohio
 
-  # 2. The Backend (Node.js)
+  # 2. The Backend (Public Web Service)
   - type: web
     name: estate-sense-backend
     env: docker
@@ -18,18 +16,12 @@ services:
     region: ohio
     envVars:
       - key: MONGO_URI
-        sync: false # You will set this manually in the dashboard for security
+        sync: false 
       - key: PORT
         value: 5000
 
-  # 3. The Frontend (React/Vite)
-  - type: web
+  # 3. The Frontend (Static Site)
+  - type: static
     name: estate-sense-app
-    env: static
-    buildCommand: npm install && npm run build
+    buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
-    plan: free
-    region: ohio
-    envVars:
-      - key: VITE_API_URL
-        value: https://estate-sense-backend.onrender.com

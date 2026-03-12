@@ -51,7 +51,7 @@ function App() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/house-price', formData);
+      const response = await axios.post("https://estate-sense-backend.onrender.com/api/house-price", formData);
       setPrediction(response.data.price);
     } catch (error) {
       console.error("Error:", error);
@@ -63,7 +63,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Aura: Boston Real Estate AI</h1>
+        <h1>Estate Sense: Boston Real Estate AI</h1>
         <p>Predicting median home values using Neural Network regression.</p>
       </header>
 
@@ -93,8 +93,8 @@ function App() {
             <button type="submit" className="predict-btn" disabled={loading}>
               {loading ? "Analyzing Data..." : (
                 <>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '8px', verticalAlign: 'text-bottom'}}>
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', verticalAlign: 'text-bottom' }}>
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
                   </svg>
                   Generate Valuation
                 </>

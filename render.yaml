@@ -1,6 +1,6 @@
 services:
   # 1. The ML Service 
-  - type: pserv
+  - type: web
     name: estate-sense-ml
     env: docker
     dockerContext: ./ml_service

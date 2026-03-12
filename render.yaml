@@ -1,17 +1,19 @@
 services:
-  # 1. The ML Service 
-  - type: web
+  # 1. The ML Service
+  - type: pvt
     name: estate-sense-ml
     env: docker
     dockerContext: ./ml_service
+    dockerfilePath: ./ml_service/Dockerfile 
     plan: free
     region: ohio
 
-# 2. The Backend (Public)
+  # 2. The Backend
   - type: web
     name: estate-sense-backend
     env: docker
     dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile      
     plan: free
     region: ohio
     envVars:

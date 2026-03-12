@@ -1,0 +1,14 @@
+artifact_uri: file:///media/hitesh-m-r/be2b223c-f0b2-4db8-ae8c-ebeb9356e3db/Boston-house-pricing-deployment/mlruns/973719118786433795/31813bbe6df444689fd9b047899305ab/artifacts
+end_time: 1773317194896
+entry_point_name: ''
+experiment_id: '973719118786433795'
+lifecycle_stage: active
+run_id: 31813bbe6df444689fd9b047899305ab
+run_name: Random_Forest_Final
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773317192340
+status: 3
+tags: []
+user_id: hitesh-m-r

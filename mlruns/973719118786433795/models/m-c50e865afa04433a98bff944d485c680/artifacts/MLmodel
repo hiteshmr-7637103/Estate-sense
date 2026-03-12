@@ -1,0 +1,22 @@
+artifact_path: file:///media/hitesh-m-r/be2b223c-f0b2-4db8-ae8c-ebeb9356e3db/Boston-house-pricing-deployment/mlruns/973719118786433795/models/m-c50e865afa04433a98bff944d485c680/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+mlflow_version: 3.3.2
+model_id: m-c50e865afa04433a98bff944d485c680
+model_size_bytes: 3490852
+model_uuid: m-c50e865afa04433a98bff944d485c680
+prompts: null
+run_id: c911bb2731fa4ca8a8f551630d0db38a
+utc_time_created: '2026-03-12 12:01:23.709241'

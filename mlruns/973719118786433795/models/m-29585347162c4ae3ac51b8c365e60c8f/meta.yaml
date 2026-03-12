@@ -1,0 +1,10 @@
+artifact_location: file:///media/hitesh-m-r/be2b223c-f0b2-4db8-ae8c-ebeb9356e3db/Boston-house-pricing-deployment/mlruns/973719118786433795/models/m-29585347162c4ae3ac51b8c365e60c8f/artifacts
+creation_timestamp: 1773317215967
+experiment_id: '973719118786433795'
+last_updated_timestamp: 1773317218271
+model_id: m-29585347162c4ae3ac51b8c365e60c8f
+model_type: null
+name: estate_sense_model
+source_run_id: 9fe478050fa942818d7584f12f846423
+status: 2
+status_message: null

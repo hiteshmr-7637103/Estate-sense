@@ -1,0 +1,10 @@
+artifact_location: file:///media/hitesh-m-r/be2b223c-f0b2-4db8-ae8c-ebeb9356e3db/Boston-house-pricing-deployment/mlruns/973719118786433795/models/m-c50e865afa04433a98bff944d485c680/artifacts
+creation_timestamp: 1773316883704
+experiment_id: '973719118786433795'
+last_updated_timestamp: 1773316885908
+model_id: m-c50e865afa04433a98bff944d485c680
+model_type: null
+name: production_model
+source_run_id: c911bb2731fa4ca8a8f551630d0db38a
+status: 2
+status_message: null

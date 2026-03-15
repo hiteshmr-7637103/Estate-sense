@@ -1,17 +1,17 @@
 services:
-  # 1. The ML Service (Private — only accessible internally)
-  - type: pserv
+  # 1. The ML Service
+  - type: web
     name: estate-sense-ml
     env: docker
-    dockerContext: ./ml_service
+    dockerContext: ./ml_service   
     plan: free
     region: ohio
 
-  # 2. The Backend (Public Web Service)
+  # 2. The Backend
   - type: web
     name: estate-sense-backend
     env: docker
-    dockerContext: ./backend
+    dockerContext: ./backend      
     plan: free
     region: ohio
     envVars:
@@ -20,7 +20,4 @@ services:
       - key: PORT
         value: "5000"
       - key: PYTHON_API_URL
-        fromService:
-          name: estate-sense-ml
-          type: pserv
-          property: hostport
+        value: "https://estate-sense-ml.onrender.com"

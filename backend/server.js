@@ -33,16 +33,21 @@ app.post('/api/house-price', async (req, res) => {
         const pythonResponse = await axios.post(PYTHON_API_URL, req.body);
         const price = pythonResponse.data.predicted_price;
 
-        // SAVE TO DATABASE
-        const newPrediction = new Prediction({
-            inputData: req.body,
-            predictedPrice: price
-        });
-        await newPrediction.save();
+        try {
+            const newPrediction = new Prediction({
+                inputData: req.body,
+                predictedPrice: price
+            });
+            await newPrediction.save();
+        } catch (dbError) {
+            console.error("DB save failed:", dbError.message);
+        }
 
         res.json({ success: true, price });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: "Server Error" });
+        console.error("Full error:", error.response?.data || error.message);
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 

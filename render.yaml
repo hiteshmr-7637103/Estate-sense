@@ -3,7 +3,7 @@ services:
   - type: pserv
     name: estate-sense-ml
     env: docker
-    rootDir: ./ml_service
+    dockerContext: ./ml_service
     plan: free
     region: ohio
 
@@ -11,7 +11,7 @@ services:
   - type: web
     name: estate-sense-backend
     env: docker
-    rootDir: ./backend
+    dockerContext: ./backend
     plan: free
     region: ohio
     envVars:

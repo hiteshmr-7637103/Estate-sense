@@ -27,7 +27,7 @@ class HouseData(BaseModel):
 
 @app.get("/")
 def home():
-    return {"message": "Boston Housing Prediction API is running"}
+    return {"message": "Estate Sense API is running"}
 
 @app.post("/predict")
 def predict_price(data: HouseData):

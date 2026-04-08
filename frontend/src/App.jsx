@@ -63,8 +63,8 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Estate Sense: Boston Real Estate AI</h1>
-        <p>Predicting median home values using Neural Network regression.</p>
+        <h1>Estate Sense: Property value estimator</h1>
+        <p>Know your property value with estate sense!</p>
       </header>
 
       <main>
